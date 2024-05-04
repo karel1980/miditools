@@ -1,0 +1,5 @@
+venv/
+build
+dist
+midi_tools.egg-info
+.idea/
