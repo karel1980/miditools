@@ -14,13 +14,15 @@ setuptools.setup(
 	long_description=long_description,
 	long_description_content_type="text/markdown",
 	url="https://github.com/karel1980/midi-tools",
-	packages=setuptools.find_packages(),
+	#packages=setuptools.find_packages(),
+  package_dir=dict(miditools="miditools"),
 	classifiers=[],
 	python_requires='>=3.6',
 	install_requires=requirements,
 	entry_points={
 		'console_scripts': [
-			'mt-highlight-tracks = miditools.highlight:main'
+			'mt-highlight-tracks = miditools.highlight:main',
+			'mt-replace-instruments = miditools.replace_instruments:main'
 		],
 	}
 )

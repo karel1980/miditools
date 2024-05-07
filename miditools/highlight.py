@@ -12,7 +12,7 @@ def highlight_track(in_path, out_path, track_name):
 		for msg in track:
 
 			if track.name != track_name and msg.type == "note_on":
-				new_velocity = int(msg.velocity * .30)
+				new_velocity = int(msg.velocity * .40)
 				msg.velocity = new_velocity
 
 	mid.save(out_path)
