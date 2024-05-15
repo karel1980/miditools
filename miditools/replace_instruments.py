@@ -4,27 +4,27 @@ from mido import MidiFile
 
 
 def replace_instruments(in_path, out_path):
-	print(f"Replacing instruments in {in_path}")
+  print(f"Replacing instruments in {in_path}")
 
-	mid = MidiFile(in_path, clip=True)
+  mid = MidiFile(in_path, clip=True)
 
-	for i, track in enumerate(mid.tracks):
-		for msg in track:
-			if msg.type == "program_change":
-				msg.program = 0
+  for i, track in enumerate(mid.tracks):
+    for msg in track:
+      if msg.type == "program_change":
+        msg.program = 0
 
-	mid.save(out_path)
+  mid.save(out_path)
 
 
 def main():
-	# input_path = sys.argv[1]
-	# output_path = sys.argv[2]
+  if len(sys.argv) != 3:
+    print(f"usage: {sys.argv[0]} infile outfile")
 
-	input_path = os.path.join(os.path.dirname(__file__), "..", "samples", "le dromadaire.mid")
-	output_path = os.path.join(os.path.dirname(__file__), "..", "out.mid")
+  input_path = sys.argv[1]
+  output_path = sys.argv[2]
 
-	replace_instruments(input_path, os.path.expanduser(output_path))
+  replace_instruments(input_path, os.path.expanduser(output_path))
 
 
 if __name__ == "__main__":
-	main()
+  main()
